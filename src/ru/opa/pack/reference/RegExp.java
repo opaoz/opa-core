@@ -5,12 +5,12 @@ public final class RegExp {
 	 * Credit card number
 	 */
 	public static final String CARD_NUMBER = "[0-9]{13,16}";
-	
+
 	/**
 	 * ICQ number
 	 */
 	public static final String ICQ = "([1-9])+(?:-?\\d){4,}";
-	
+
 	/**
 	 * String contains only numbers and letters
 	 * <hr><blockquote>
@@ -19,25 +19,25 @@ public final class RegExp {
 	 * @see NUMBERS_AND_LETTERS_RUS
 	 */
 	public static final String NUMBERS_AND_LETTERS = "^[a-zA-Z0-9]+$";
-	
+
 	/**
 	 * String contains only numbers and letters
 	 * <hr><blockquote>
-	 * 		<b>¿-ˇ®∏A-z0-9</b>
+	 * 		<b>–ê-—è–Å—ëA-z0-9</b>
 	 * </blockquote>
 	 * @see NUMBERS_AND_LETTERS
 	 */
-	public static final String NUMBERS_AND_LETTERS_RUS = "^[‡-ˇ¿-ﬂ∏®a-zA-Z0-9]+$";
-	
+	public static final String NUMBERS_AND_LETTERS_RUS = "^[–∞-—è–ê-–Ø—ë–Åa-zA-Z0-9]+$";
+
 	/**
-	 * Domen name 
+	 * Domen name
 	 * <hr><blockquote>
 	 * 		<b>yandex.ru</b>
 	 * </blockquote>
 	 * @see URL_RUS
 	 */
 	public static final String DOMEN = "([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}";
-	
+
 	/**
 	 * User name 3-20 letters
 	 * <hr><blockquote>
@@ -46,7 +46,7 @@ public final class RegExp {
 	 * @see PASSWORD
 	 */
 	public static final String USER_NAME = "[a-zA-Z][a-zA-Z0-9-_.]{2,20}";
-	
+
 	/**
 	 * Password
 	 * <hr><blockquote>
@@ -54,7 +54,7 @@ public final class RegExp {
 	 * </blockquote>
 	 */
 	public static final String PASSWORD = "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*";
-	
+
 	/**
 	 * Date in YYYY-MM-DD
 	 * <hr><blockquote>
@@ -63,7 +63,7 @@ public final class RegExp {
 	 * @see DATE_DMY
 	 */
 	public static final String DATE_YMD = "(19|20)\\d\\d-((0[1-9]|1[012])-(0[1-9]|[12]\\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)";
-	
+
 	/**
 	 * Date in DD/MM/YYYY
 	 * <hr><blockquote>
@@ -72,25 +72,25 @@ public final class RegExp {
 	 * @see DATE_YMD
 	 */
 	public static final String DATE_DMY = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d";
-	
+
 	/**
 	 * int, float, double numbers
 	 */
 	public static final String NUMBER = "\\-?\\d+(\\.\\d{0,})?";
-	
+
 	public static final String UUID = "[0-9A-Fa-f]{8}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{12}";
-	
+
 	public static final String EMAIL = "[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}";
-	
+
 	/**
-	 * Domen name <i>include ‰ÓÏÂÌ.Ù</i> 
+	 * Domen name <i>include –¥–æ–º–µ–Ω.—Ä—Ñ</i>
 	 * <hr><blockquote>
-	 * 		<b>yandex.ru && ˇÌ‰ÂÍÒ.Ù</b>
+	 * 		<b>yandex.ru && —è–Ω–¥–µ–∫—Å.—Ä—Ñ</b>
 	 * </blockquote>
 	 * @see DOMEN
 	 */
-	public static final String URL_RUS = "(?:(?:https?|ftp|telnet)://(?:[‡-ˇ∏a-z0-9_-]{1,32}(?::[‡-ˇ∏a-z0-9_-]{1,32})?@)?)?(?:(?:[‡-ˇ∏a-z0-9-]{1,128}\\.)+(?:Ù|ru|su|com|net|org|mil|edu|arpa|gov|biz|info|aero|inc|name|[a-z]{2})|(?!0)(?:(?!0[^.]|255)[0-9]{1,3}\\.){3}(?!0|255)[0-9]{1,3})(?:/[‡-ˇ∏a-z0-9.,_@%&?+=\\~/-]*)?(?:#[^ '\\\"&]*)?";
-	
+	public static final String URL_RUS = "(?:(?:https?|ftp|telnet)://(?:[–∞-—è—ëa-z0-9_-]{1,32}(?::[–∞-—è—ëa-z0-9_-]{1,32})?@)?)?(?:(?:[–∞-—è—ëa-z0-9-]{1,128}\\.)+(?:—Ä—Ñ|ru|su|com|net|org|mil|edu|arpa|gov|biz|info|aero|inc|name|[a-z]{2})|(?!0)(?:(?!0[^.]|255)[0-9]{1,3}\\.){3}(?!0|255)[0-9]{1,3})(?:/[–∞-—è—ëa-z0-9.,_@%&?+=\\~/-]*)?(?:#[^ '\\\"&]*)?";
+
 	/**
 	 * Time in HH:MM:SS
 	 * <hr><blockquote>

@@ -31,20 +31,20 @@ public final class ConsoleHelper {
 		String[] array = new String[length];
 
 		for(int i = 0;i < length; i++){
-			array[i] = nextString("Ââåäèòå " + (i + 1) + "-é ýëåìåíò: ");
-		}	
+			array[i] = nextString("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " + (i + 1) + "-Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: ");
+		}
 
 		return array;
 	}
-	
+
 	public int[] nextIntArray(String message){
 		int length = nextInt(message);
 		int[] array = new int[length];
-		
+
 		for(int i = 0;i < length; i++){
-			array[i] = nextInt("Ââåäèòå " + (i + 1) + "-é ýëåìåíò: ");
+			array[i] = nextInt("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " + (i + 1) + "-Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: ");
 		}
-		
+
 		return array;
 	}
 }

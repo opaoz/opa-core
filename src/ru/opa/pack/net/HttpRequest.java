@@ -57,10 +57,10 @@ public class HttpRequest {
 	 * @return Post request
 	 */
 	public static String sendPostRequest(String urlLocation,
-			List<String[]> parameters) throws IOException {
+										 List<String[]> parameters) throws IOException {
 		StringBuffer result = new StringBuffer();
 		HttpURLConnection connection = getConnection(urlLocation);
-		System.out.println("Соединение с " + urlLocation + " установлено.");
+		System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ СЃ " + urlLocation + " СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ.");
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Referer", urlLocation);
 		connection.setRequestProperty("Cookie", "your cookies may be here");
@@ -82,15 +82,15 @@ public class HttpRequest {
 		}
 		connection.connect();
 		if (parameters != null && data.length() != 0) {
-			System.out.println("Отправка данных..");
+			System.out.println("РћС‚РїСЂР°РІРєР° РґР°РЅРЅС‹С…..");
 
 			try (PrintWriter out = new PrintWriter(connection.getOutputStream())) {
 
 				out.write(data);
 			} catch (IOException e) {
-				System.out.println("Ошибка потока ");
+				System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° ");
 			}
-			System.out.println("Получение ответа от сервера..");
+			System.out.println("РџРѕР»СѓС‡РµРЅРёРµ РѕС‚РІРµС‚Р° РѕС‚ СЃРµСЂРІРµСЂР°..");
 		}
 
 		try (BufferedReader rd = new BufferedReader(new InputStreamReader(
@@ -100,7 +100,7 @@ public class HttpRequest {
 				result.append(line).append("\n");
 			}
 		} catch (IOException e) {
-			System.out.println("Ошибка потока ");
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° ");
 		}
 
 		connection.disconnect();

@@ -17,7 +17,7 @@ public final class FileHelper {
 	public static String read(File file) {
 		StringBuilder lines = new StringBuilder();
 		if (!file.exists()) {
-			System.out.println("Файла не существует!");
+			System.out.println("Р¤Р°Р№Р»Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 			return "";
 		}
 
@@ -28,7 +28,7 @@ public final class FileHelper {
 				lines.append(temp + "\n");
 			}
 		} catch (IOException e) {
-			System.out.println("Ошибка потока для файла " + file.getName());
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° РґР»СЏ С„Р°Р№Р»Р° " + file.getName());
 			return "";
 		}
 
@@ -39,7 +39,7 @@ public final class FileHelper {
 		List<String> list = new ArrayList<String>();
 
 		if (!file.exists()) {
-			System.out.println("Файла не существует!");
+			System.out.println("Р¤Р°Р№Р»Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 			return null;
 		}
 
@@ -50,7 +50,7 @@ public final class FileHelper {
 				list.add(temp);
 			}
 		} catch (IOException e) {
-			System.out.println("Ошибка потока ");
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° ");
 		}
 
 		return list.toArray(new String[list.size()]);
@@ -61,7 +61,7 @@ public final class FileHelper {
 			try {
 				file.createNewFile();
 			} catch (IOException e1) {
-				System.out.println("Ошибка создания файла " + file.getName());
+				System.out.println("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р° " + file.getName());
 			}
 
 		try (BufferedWriter output = new BufferedWriter(new FileWriter(
@@ -70,7 +70,7 @@ public final class FileHelper {
 				output.write(line + "\n");
 			}
 		} catch (IOException e) {
-			System.out.println("Ошибка потока для файла " + file.getName());
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° РґР»СЏ С„Р°Р№Р»Р° " + file.getName());
 			return false;
 		}
 
@@ -82,7 +82,7 @@ public final class FileHelper {
 			try {
 				file.createNewFile();
 			} catch (IOException e1) {
-				System.out.println("Ошибка создания файла " + file.getName());
+				System.out.println("РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р° " + file.getName());
 			}
 
 		try (BufferedWriter output = new BufferedWriter(new FileWriter(
@@ -90,7 +90,7 @@ public final class FileHelper {
 			output.write(line + "\n");
 
 		} catch (IOException e) {
-			System.out.println("Ошибка потока для файла " + file.getName());
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° РґР»СЏ С„Р°Р№Р»Р° " + file.getName());
 			return false;
 		}
 
@@ -99,11 +99,11 @@ public final class FileHelper {
 
 	/*
 	 * Download file from Internet. Dont replace exists files
-	 * 
+	 *
 	 * @param url Url for download
-	 * 
+	 *
 	 * @param path Path for local file save
-	 * 
+	 *
 	 * @param fileName Name of file on local drive
 	 */
 	public static void download(String url, String path, String fileName) {
@@ -111,15 +111,15 @@ public final class FileHelper {
 			URL urlConnection = new URL(url);
 			File file = new File(path + "/" + fileName);
 			//if (!file.exists())
-				//file.createNewFile();
-			
+			//file.createNewFile();
+
 			//System.out.println(file.getName());
 
 			Files.copy(urlConnection.openStream(), file.toPath());
 		} catch (FileAlreadyExistsException e) {
 			//System.out.println("Already exists");
 		} catch (IOException e) {
-			System.out.println("Ошибка копирования");
+			System.out.println("РћС€РёР±РєР° РєРѕРїРёСЂРѕРІР°РЅРёСЏ");
 			System.out.println(e.getMessage());
 		}
 

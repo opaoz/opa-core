@@ -28,7 +28,7 @@ public final class MatrixHelper {
 
 			return matrix;
 		} catch (IOException e) {
-			System.out.println("Ошибка потока для файла " + file.getName());
+			System.out.println("РћС€РёР±РєР° РїРѕС‚РѕРєР° РґР»СЏ С„Р°Р№Р»Р° " + file.getName());
 		}
 
 		return null;

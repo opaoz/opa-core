@@ -22,9 +22,9 @@ public class TrayMenu implements ActionListener {
 	 * <blockquote>Image first = Toolkit.getDefaultToolkit()
 	 * .getImage("D:/test/damage.png");
 	 * 
-	 * TrayMenu t = new TrayMenu("Tуst", first); t.addMenuItem(new Exit());
+	 * TrayMenu t = new TrayMenu("TпїЅst", first); t.addMenuItem(new Exit());
 	 * t.addMouseListener(new ChangeIcon(t, Toolkit.getDefaultToolkit()
-	 * .getImage("D:/test/melon.png"))); t.setToolTip("Вот так вот");
+	 * .getImage("D:/test/melon.png"))); t.setToolTip("Anything");
 	 * </blockquote>
 	 */
 	public TrayMenu(String name, Image image) {

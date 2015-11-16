@@ -22,10 +22,10 @@ public class FileChooser extends JPanel implements ActionListener {
 	 * new FileNameExtensionFilter( "Text file (.txt)", "txt");
 	 */
 	public FileChooser(String text, String defaultPath, int option,
-			FileFilter filter) {
+					   FileFilter filter) {
 		if (option < 0 && option > 3)
 			option = 0;
-		fileOpen = new JButton("Открыть");
+		fileOpen = new JButton("Open");
 		fileOpen.addActionListener(this);
 
 		fileName = new JLabel(text);

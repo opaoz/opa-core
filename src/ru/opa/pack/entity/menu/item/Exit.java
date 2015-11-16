@@ -9,7 +9,7 @@ public class Exit extends MenuItem implements MenuItems {
 	private static final long serialVersionUID = 5690781598317859805L;
 
 	public Exit() {
-		super("Выход");
+		super("Exit");
 	}
 
 	@Override
