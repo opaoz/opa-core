@@ -10,7 +10,7 @@ public final class HttpResponse {
         String response = "HTTP/1.1 200 OK\r\n" +
                 "Server: YarServer/2009-09-09\r\n" +
                 "Content-Type: text/json\r\n" +
-                "Content-Length: " + message.length() + "\r\n" +
+                //"Content-Length: " + message.length() + "\r\n" +
                 "Access-Control-Allow-Origin: *\r\n" +
                 "Connection: close\r\n\r\n";
         String result = response + message;
@@ -19,13 +19,12 @@ public final class HttpResponse {
         outputStream.flush();
     }
 
-    public static String readInputHeadersPOST(InputStream inputStream) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-        String line = in.readLine();
-        if (line == null) {
+    public static String readBodyPOST(BufferedReader in, String line) throws IOException {
+        //BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
+        /*if (line == null) {
             in.close();
             return "none";
-        }
+        }*/
         StringBuilder headers = new StringBuilder();
         StringBuilder body = new StringBuilder();
         boolean isPost = line.startsWith("POST");
@@ -53,5 +52,45 @@ public final class HttpResponse {
         }
 
         return body.toString();
+    }
+
+    public static void sendFileGET(OutputStream outputStream, String request, String publicFolder) throws IOException {
+        String[] requestParam = request.split(" ");
+        String path = requestParam[1];
+
+        PrintWriter out = new PrintWriter(outputStream, true);
+        if (path.equals("/")) {
+            path = "/index.html";
+        }
+        File file = new File(publicFolder + path);
+        System.out.println(path);
+        if (!file.exists()) {
+            System.out.println("404");
+            out.write("HTTP 404"); // the file does not exists
+        }
+
+        /*String statusLine = "HTTP/1.1 200 OK" + "\r\n";
+        String serverdetails = "Server: Java HTTPServer";
+        String contentTypeLine = "Content-Type: text/html" + "\r\n";
+
+        out.write(statusLine);
+        out.write(serverdetails);
+        out.write(contentTypeLine);*/
+
+        FileReader fr = new FileReader(file);
+        BufferedReader bfr = new BufferedReader(fr);
+        String line;
+        while ((line = bfr.readLine()) != null) {
+            out.write(line);
+            out.write("\r\n");
+        }
+
+        bfr.close();
+        out.close();
+        fr.close();
+    }
+
+    public static void sendFileGET(OutputStream outputStream, String request) throws IOException {
+        sendFileGET(outputStream, request, "public");
     }
 }

@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
  */
 
 public final class JSONHelper {
-    public static JSONArray generateJSONResponse(Map<String[], List<QuerySolution>> map) {
+    public static String generateJSONResponse(Map<String[], List<QuerySolution>> map) {
         Map.Entry<String[], List<QuerySolution>> item = map.entrySet().iterator().next();
         String[] vars = item.getKey();
         List<QuerySolution> values = item.getValue();
 
         JSONArray result = values.stream().map(qs -> generateJSONObject(vars, qs)).collect(Collectors.toCollection(() -> new JSONArray()));
 
-        return result;
+        return result.toJSONString();
     }
 
     public static JSONObject generateJSONObject(String[] vars, QuerySolution qs) {
