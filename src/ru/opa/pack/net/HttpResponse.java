@@ -44,11 +44,14 @@ public final class HttpResponse {
         }
 
         if (isPost) {
-            int c;
-            for (int i = 0; i < contentLength; i++) {
+            char[] c = new char[contentLength];
+            in.read(c, 0, contentLength);
+
+            body.append(c);
+            /*for (int i = 0; i < contentLength; i++) {
                 c = in.read();
                 body.append((char) c);
-            }
+            }*/
         }
 
         return body.toString();
@@ -57,11 +60,21 @@ public final class HttpResponse {
     public static void sendFileGET(OutputStream outputStream, String request, String publicFolder) throws IOException {
         String[] requestParam = request.split(" ");
         String path = requestParam[1];
-
-        PrintWriter out = new PrintWriter(outputStream, true);
         if (path.equals("/")) {
             path = "/index.html";
         }
+
+        String response = "HTTP/1.1 200 OK\r\n" +
+                "Server: YarServer/2009-09-09\r\n" +
+                "Content-Type: text/" + (path.endsWith(".html") ? "html" : path.endsWith(".js") ? "javascript" : path.endsWith(".css") ? "css" : "jpeg") +
+                "\r\n" +
+                //"Content-Length: " + message.length() + "\r\n" +
+                "Access-Control-Allow-Origin: *\r\n" +
+                "Connection: close\r\n\r\n";
+
+        PrintWriter out = new PrintWriter(outputStream, true);
+
+        outputStream.write(response.getBytes());
         File file = new File(publicFolder + path);
         System.out.println(path);
         if (!file.exists()) {
